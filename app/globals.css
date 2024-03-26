@@ -31,3 +31,13 @@ body {
     text-wrap: balance;
   }
 }
+
+.text-glow {
+  text-shadow: 0 0 500px rgba(192, 219, 255, 0.75),
+    0 0 50px rgba(65, 120, 255, 0.24);
+}
+.text-gradient {
+  background: linear-gradient(to right, #30cfd0, #c43ad6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

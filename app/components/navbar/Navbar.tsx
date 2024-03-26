@@ -5,7 +5,9 @@ interface NavbarProps {
 const Navbar = ({ isLoggedIn }: NavbarProps) => {
   return (
     <div className="container w-full bg-transparent mx-auto py-4 px-5 md:px-0 flex justify-between items-center">
-      <div className="text-3xl font-bold">Room Rover</div>
+      <div className="text-3xl font-bold text-white text-gradient ">
+        Room Rover
+      </div>
       <div>
         {isLoggedIn ? (
           <>
