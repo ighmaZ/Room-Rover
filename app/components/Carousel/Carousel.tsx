@@ -6,15 +6,15 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import "./embla.css";
 import Image from "next/image";
-import DemoImg from "../../../assets/images/new-ai-image-generator-can-help-users-redesign-their-own-spaces_5.jpg";
+import DemoImg from "../../../assets/images/img-1.jpeg";
+import DxmoImg from "../../../assets/images/img-2.jpeg";
 
 type PropType = {
   slides: number[];
   options?: EmblaOptionsType;
 };
 
-const Carousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props;
+const Carousel: React.FC<PropType> = ({ slides, options }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     AutoScroll({ playOnInit: true }),
   ]);
@@ -25,7 +25,13 @@ const Carousel: React.FC<PropType> = (props) => {
         <div className="embla__container">
           {slides.map((index) => (
             <div className="embla__slide" key={index}>
-              <Image src={DemoImg} alt="img" className="imgg" />
+              <Image
+                src={`/images/img-${index}.jpg`}
+                alt="img"
+                width={1000}
+                height={1000}
+                className="imgg"
+              />
             </div>
           ))}
         </div>
