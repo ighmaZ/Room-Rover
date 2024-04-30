@@ -2,7 +2,7 @@ import React from "react";
 
 const AnimatedText = () => {
   return (
-    <div className="text-center mt-20 mb-20">
+    <div className="text-center mt-20 mb-20 ">
       <span className="content__container block text-5xl ">
         <ul className="content__container__list">
           <li className="content__container__list__item xl:pl-3">
