@@ -1,9 +1,9 @@
-import { Container } from "postcss";
-
+import Image from "next/image";
+import Example from "../../../public/example .jpeg";
 const Hero: React.FC = () => {
   return (
     <>
-      <div className="flex flex-wrap mt-20 ml-10">
+      <div className="flex flex-wrap mt-8 mx-auto w-[90%]">
         <div className="flex items-center w-full lg:w-1/2">
           <div className="max-w-2xl mb-8">
             <h1 className="content__container__list__item text-4xl font-bold  ">
@@ -17,6 +17,19 @@ const Hero: React.FC = () => {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-center w-full lg:w-1/2 ">
+          <div className="">
+            <Image
+              src={Example}
+              width="616"
+              height="617"
+              className={"object-cover"}
+              alt="Hero Illustration"
+              loading="eager"
+              placeholder="blur"
+            />
           </div>
         </div>
       </div>
