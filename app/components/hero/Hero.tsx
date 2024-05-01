@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
       <div className="flex flex-wrap mt-8 mx-auto w-[90%]">
         <div className="flex items-center w-full lg:w-1/2">
           <div className="max-w-2xl mb-8">
-            <h1 className="content__container__list__item text-4xl font-bold  ">
+            <h1 className="content__container__list__item  text-[1.6em] lg:text-4xl  font-bold  pt-5 ">
               Redesign Your Home Using <span className="text-gradient">AI</span>
             </h1>
             <div className="flex justify-center mt-20 ">
