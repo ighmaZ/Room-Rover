@@ -4,6 +4,7 @@ import AnimatedText from "./components/animatedText";
 import Carousel from "./components/Carousel";
 import { EmblaOptionsType } from "embla-carousel";
 import Hero from "./components/hero";
+import Faq from "./components/faq";
 
 const OPTIONS: EmblaOptionsType = { loop: true };
 const SLIDE_COUNT = 5;
@@ -16,6 +17,7 @@ const Page = () => {
       <AnimatedText />
       <Carousel slides={SLIDES} options={OPTIONS} />
       <Hero />
+      <Faq />
     </div>
   );
 };
