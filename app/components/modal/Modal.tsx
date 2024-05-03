@@ -3,6 +3,7 @@
 import useModalStore from "@/app/store/useModal";
 import { Button, Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { FcGoogle } from "react-icons/fc";
 
 const Modal: React.FC = () => {
   const { openModal, closeModal, isOpen } = useModalStore();
@@ -21,10 +22,10 @@ const Modal: React.FC = () => {
             leaveTo="opacity-0"
           >
             {/* to blur the background */}
-            <div className="fixed inset-0 bg-black bg-opacity-45 backdrop-blur-sm" />
+            <div className="fixed inset-0 bg-black bg-opacity-45 backdrop-blur-md" />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto">
+          <div className="fixed inset-0 overflow-y-auto ">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -35,21 +36,15 @@ const Modal: React.FC = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-gray-300 p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
-                  >
-                    Payment successful
-                  </Dialog.Title>
-
-                  <div className="mt-4">
+                <Dialog.Panel className=" w-full max-w-xs transform overflow-hidden rounded-2xl  bg-gray-100  py-10 text-center align-middle shadow-xl transition-all opacity-95">
+                  <div>
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-md border border-transparent px-8 py-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm text-center me-2 mb-2 shadow-xl"
                       onClick={closeModal}
                     >
-                      Got it, thanks!
+                      <FcGoogle className="mt-[0.20rem] mr-1" />
+                      Sign in with Google
                     </button>
                   </div>
                 </Dialog.Panel>
