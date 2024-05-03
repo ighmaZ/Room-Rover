@@ -1,30 +1,14 @@
 "use client";
 
-import { Dialog, Transition } from "@headlessui/react";
+import useModalStore from "@/app/store/useModal";
+import { Button, Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
 const Modal: React.FC = () => {
-  let [isOpen, setIsOpen] = useState(true);
+  const { openModal, closeModal, isOpen } = useModalStore();
 
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
   return (
     <>
-      <div className=" fixed inset-0 flex items-center justify-center">
-        <button
-          type="button"
-          onClick={openModal}
-          className="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
-        >
-          open
-        </button>
-      </div>
-
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child

@@ -14,8 +14,8 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 const Page = () => {
   return (
     <div className="w-full min-h-screen justify-center ">
-      {/* <Modal /> */}
-      <Navbar isLoggedIn={true} />
+      <Modal />
+      <Navbar isLoggedIn={false} />
       <AnimatedText />
       <Carousel slides={SLIDES} options={OPTIONS} />
       <Hero />

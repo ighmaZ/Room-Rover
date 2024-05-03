@@ -1,3 +1,5 @@
+"use client";
+
 import { LuSofa } from "react-icons/lu";
 import Modal from "../modal";
 import useModalStore from "@/app/store/useModal";
@@ -23,16 +25,17 @@ const Navbar = ({ isLoggedIn }: NavbarProps) => {
             <button className="text-red mr-4 hover:text-gray-500">
               Pricing
             </button>
-            <button
-              className=" text-white py-2 px-4 ml-10 font-semibold border border-gray-500 hover:bg-gray-700 rounded-xl shadow-2xl shadow-sky-300 "
-              onClick={openModal}
-            >
-              Sign out
+            <button className=" text-white py-2 px-4 ml-10 font-semibold border border-gray-500 hover:bg-gray-700 rounded-xl shadow-2xl shadow-sky-300 ">
+              Logout
             </button>
           </>
         ) : (
-          <button className=" text-white py-2 px-4 font-semibold border border-gray-500 hover:bg-gray-700 rounded-xl shadow-2xl shadow-sky-300 ">
-            Sign up
+          <button
+            type="button"
+            className=" text-white py-2 px-8 font-semibold border border-gray-500 hover:bg-gray-700 rounded-xl shadow-2xl shadow-sky-300 "
+            onClick={() => openModal()}
+          >
+            Login
           </button>
         )}
       </div>
