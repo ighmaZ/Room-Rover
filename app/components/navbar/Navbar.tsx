@@ -1,11 +1,12 @@
 import { LuSofa } from "react-icons/lu";
+import Modal from "../modal";
 interface NavbarProps {
   isLoggedIn: boolean;
 }
 
 const Navbar = ({ isLoggedIn }: NavbarProps) => {
   return (
-    <div className="container w-full bg-transparent mx-auto py-4 px-5 md:px-0 flex justify-between items-center">
+    <div className="container  w-full bg-transparent mx-auto py-4 px-5 md:px-0 flex justify-between items-center">
       <div className="flex">
         <div className="text-sm sm:text-3xl mt-1 mr-2 text-purple-300">
           <LuSofa />
