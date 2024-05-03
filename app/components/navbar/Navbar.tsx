@@ -1,10 +1,12 @@
 import { LuSofa } from "react-icons/lu";
 import Modal from "../modal";
+import useModalStore from "@/app/store/useModal";
 interface NavbarProps {
   isLoggedIn: boolean;
 }
 
 const Navbar = ({ isLoggedIn }: NavbarProps) => {
+  const { openModal } = useModalStore();
   return (
     <div className="container  w-full bg-transparent mx-auto py-4 px-5 md:px-0 flex justify-between items-center">
       <div className="flex">
@@ -21,7 +23,10 @@ const Navbar = ({ isLoggedIn }: NavbarProps) => {
             <button className="text-red mr-4 hover:text-gray-500">
               Pricing
             </button>
-            <button className=" text-white py-2 px-4 ml-10 font-semibold border border-gray-500 hover:bg-gray-700 rounded-xl shadow-2xl shadow-sky-300 ">
+            <button
+              className=" text-white py-2 px-4 ml-10 font-semibold border border-gray-500 hover:bg-gray-700 rounded-xl shadow-2xl shadow-sky-300 "
+              onClick={openModal}
+            >
               Sign out
             </button>
           </>
