@@ -36,11 +36,12 @@ const Modal: React.FC = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className=" w-full max-w-xs transform overflow-hidden rounded-2xl  bg-gray-100  py-10 text-center align-middle shadow-xl transition-all opacity-95">
+                <Dialog.Panel className="w-full max-w-xs transform overflow-hidden rounded-2xl bg-black py-10 text-center align-middle shadow-xl transition-all opacity-95 relative">
+                  <div className="animate-pulse absolute inset-0 border-4 border-pink-400 rounded-2xl"></div>
                   <div>
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent px-8 py-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm text-center me-2 mb-2 shadow-xl"
+                      className="relative z-10 inline-flex justify-center rounded-md border border-transparent px-8 py-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm text-center me-2 mb-2 shadow-xl"
                       onClick={closeModal}
                     >
                       <FcGoogle className="mt-[0.20rem] mr-1" />
