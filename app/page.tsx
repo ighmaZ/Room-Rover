@@ -6,6 +6,7 @@ import { EmblaOptionsType } from "embla-carousel";
 import Hero from "./components/hero";
 import Faq from "./components/faq";
 import Modal from "./components/modal";
+import Footer from "./components/footer/Footer";
 
 const OPTIONS: EmblaOptionsType = { loop: true };
 const SLIDE_COUNT = 5;
@@ -20,6 +21,7 @@ const Page = () => {
       <Carousel slides={SLIDES} options={OPTIONS} />
       <Hero />
       <Faq />
+      <Footer />
     </div>
   );
 };
