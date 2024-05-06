@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Example from "../../../public/example .jpeg";
+
 import useModalStore from "@/app/store/useModal";
 const Hero: React.FC = () => {
   const { openModal } = useModalStore();
@@ -17,7 +18,7 @@ const Hero: React.FC = () => {
               <div className="relative inline-flex  group">
                 <div className="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
                 <button
-                  className="relative inline-flex items-center justify-center border border-gray-500 px-6 py-4 text-lg font-bold text-white transition-all duration-200 bg-black  font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                  className="relative inline-flex items-center justify-center border border-gray-500 px-6 py-4 text-lg font-bold text-white transition-all duration-200 bg-black  font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900  "
                   onClick={openModal}
                 >
                   Redesign Now
