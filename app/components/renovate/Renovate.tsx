@@ -126,13 +126,19 @@ const Renovate: React.FC = () => {
           />
         </div>
       )}
-      <button
-        onClick={handleEditImage}
-        className="px-6 py-3 bg-green-500 text-white rounded hover:bg-green-600"
-        disabled={isLoading}
-      >
-        Generate Design
-      </button>
+
+      <div className="relative inline-flex  group mt-7">
+        <div className="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+        <button
+          className="relative inline-flex items-center justify-center border border-gray-500 px-6 py-4 text-lg font-bold text-white transition-all duration-200 bg-black  font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900  "
+          // onClick={openModal}
+          onClick={handleEditImage}
+          disabled={isLoading}
+        >
+          Generate Design
+        </button>
+      </div>
+
       {isLoading && (
         <div className="flex items-center justify-center mt-4">
           <ClipLoader color="#ffffff" />
