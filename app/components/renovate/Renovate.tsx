@@ -87,74 +87,85 @@ const Renovate: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white p-4">
-      <h1 className="text-3xl font-bold mb-6">Upload a photo of your room</h1>
-      <div
-        onDrop={handleDrop}
-        onDragOver={handleDragOver}
-        onDragEnter={handleDragEnter}
-        onDragLeave={handleDragLeave}
-        className={`w-full max-w-md p-6 border-2 border-dashed rounded-lg bg-gray-800 flex flex-col items-center justify-center mb-6 ${
-          isDragging ? "border-green-500 bg-green-900" : "border-gray-500"
-        }`}
-      >
-        <p className="mb-4 text-gray-300">
-          {imagePreview
-            ? "Image ready to upload"
-            : "Drag & Drop your image here"}
-        </p>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          className="hidden"
-          id="fileInput"
-        />
-        <label
-          htmlFor="fileInput"
-          className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-600"
+    <div className="min-h-screen flex flex-wrap  mt-10 bg-black text-white p-4">
+      <div className=" w-full lg:w-1/2  flex flex-col items-center  ">
+        <h1 className="text-xl lg:text-3xl font-bold mb-8 mt-8  ">
+          Upload a photo of your room
+        </h1>
+        <div
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          onDragEnter={handleDragEnter}
+          onDragLeave={handleDragLeave}
+          className={`w-full max-w-md p-6 border-2 border-dashed rounded-lg bg-gray-800 flex flex-col items-center justify-center mb-6 ${
+            isDragging ? "border-green-500 bg-green-900" : "border-gray-500"
+          }`}
         >
-          {imagePreview ? "Change selected file" : "or select a file"}
-        </label>
-      </div>
-      {imagePreview && (
-        <div className="w-full max-w-md mb-6">
-          <img
-            src={imagePreview}
-            alt="Preview"
-            className="w-full h-auto rounded-lg shadow-lg"
+          <p className="mb-4 text-gray-300">
+            {imagePreview
+              ? "Image ready to upload"
+              : "Drag & Drop your image here"}
+          </p>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="hidden"
+            id="fileInput"
           />
+          <label
+            htmlFor="fileInput"
+            className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-600"
+          >
+            {imagePreview ? "Change selected file" : "or select a file"}
+          </label>
         </div>
-      )}
+        {imagePreview && (
+          <div className="w-full max-w-md mb-6">
+            <img
+              src={imagePreview}
+              alt="Preview"
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
+        )}
 
-      <div className="relative inline-flex  group mt-7">
-        <div className="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
-        <button
-          className="relative inline-flex items-center justify-center border border-gray-500 px-6 py-4 text-lg font-bold text-white transition-all duration-200 bg-black  font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900  "
-          // onClick={openModal}
-          onClick={handleEditImage}
-          disabled={isLoading}
-        >
-          Generate Design
-        </button>
+        {/* button */}
+        <div className="flex items-center justify-center ">
+          <div className="relative inline-flex group mt-7 ">
+            <div className=" absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+            <button
+              className="relative inline-flex items-center justify-center border border-gray-500 px-6 py-4 text-lg font-bold text-white transition-all duration-200 bg-black  font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900  "
+              // onClick={openModal}
+              onClick={handleEditImage}
+              disabled={isLoading}
+            >
+              Generate Design
+            </button>
+          </div>
+        </div>
       </div>
 
-      {isLoading && (
-        <div className="flex items-center justify-center mt-4">
-          <ClipLoader color="#ffffff" />
-          <span className="ml-2">Processing...</span>
-        </div>
-      )}
-      {editedImage && (
-        <div className="mt-6">
-          <h2 className="text-2xl font-semibold mb-4">Edited Image</h2>
-          <img
-            src={editedImage}
-            alt="Edited result"
-            className="max-w-full rounded shadow-lg"
-          />
-        </div>
-      )}
+      <div className=" w-full lg:w-1/2 mt-3  flex flex-col items-center lg:pr-12 ">
+        {isLoading && (
+          <div className="flex items-center justify-center mt-10">
+            <ClipLoader color="#ffffff" />
+            <span className="ml-2">Processing...</span>
+          </div>
+        )}
+        {editedImage && (
+          <div className="mt-6">
+            <h2 className="text-2xl font-semibold mb-4 text-center">
+              Renovated Design
+            </h2>
+            <img
+              src={editedImage}
+              alt="Edited result"
+              className="max-w-full rounded shadow-lg"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
