@@ -18,7 +18,6 @@ const Home: NextPage = () => {
         <meta property="og:image" content="/path/to/image.jpg" />
       </Head>
 
-      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-15"
         style={{
@@ -29,17 +28,28 @@ const Home: NextPage = () => {
 
       <Navbar isLoggedIn={false} />
 
-      <main className="relative z-10 flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <div className="space-y-6">
-          <button className="w-full max-w-md py-4 bg-transparent border border-blue-500 hover:bg-blue-500 hover:bg-opacity-30 rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl">
-            Rennovate ur Room using AI
-          </button>
-          <button className="w-full max-w-md py-4 bg-transparent border border-violet-200 hover:bg-violet-500 hover:bg-opacity-30 rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl">
-            use your sketch to Realistic Interior Design
-          </button>
-          <button className="w-full max-w-md py-4 bg-transparent border border-purple-500 hover:bg-purple-500 hover:bg-opacity-30 rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl">
-            create ur dream interior from scraTCH
-          </button>
+      <main className="relative z-10 flex flex-col items-center justify-center w-full flex-1 px-20 text-center mb-10">
+        <div className="space-y-12">
+          <div className="relative inline-flex group w-full max-w-md">
+            <div className="absolute transition-all duration-1000 opacity-40 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-lg blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+            <button className="relative w-full py-4 bg-black rounded-lg transition-all duration-300 shadow-md hover:shadow-2xl text-sm md:text-lg font-bold">
+              Rennovate Your Room Using AI
+            </button>
+          </div>
+
+          <div className="relative inline-flex group w-full max-w-md">
+            <div className="absolute transition-all duration-1000 opacity-40 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-lg blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+            <button className="relative w-full py-4 bg-black rounded-lg transition-all duration-300 shadow-md hover:shadow-2xl text-sm md:text-xl font-bold">
+              Sketch To Realistic Interior Design
+            </button>
+          </div>
+
+          <div className="relative inline-flex group w-full max-w-md">
+            <div className="absolute transition-all duration-1000 opacity-40 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-lg blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+            <button className="relative w-full py-4 bg-black rounded-lg transition-all duration-300 shadow-md hover:shadow-2xl text-sm md:text-xl font-bold">
+              Dream Interior From Scratch
+            </button>
+          </div>
         </div>
       </main>
     </div>
