@@ -4,15 +4,13 @@ import React, { useState, ChangeEvent, DragEvent } from "react";
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
 
-const Renovate: React.FC = () => {
+const SketchToDesign: React.FC = () => {
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [editedImage, setEditedImage] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const prompt: string = "turn the sketch into realistic design ";
-  // const prompt: string =
-  //   "Renovate the input image room, a modern  bedroom. Please leave the furniture in its current position; only renovate the room without changing the arrangement of the furniture. ";
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -60,7 +58,6 @@ const Renovate: React.FC = () => {
 
     try {
       const response = await axios.post(
-        // `https://api.stability.ai/v2beta/stable-image/generate/sd3`,
         `https://api.stability.ai/v2beta/stable-image/control/sketch`,
         formData,
         {
@@ -90,7 +87,7 @@ const Renovate: React.FC = () => {
     <div className="min-h-screen flex flex-wrap  mt-10 bg-black text-white p-4">
       <div className=" w-full lg:w-1/2  flex flex-col items-center  ">
         <h1 className="text-xl lg:text-3xl font-bold mb-8 mt-8  ">
-          Upload a photo of your room
+          Upload the sketch of your interior design
         </h1>
         <div
           onDrop={handleDrop}
@@ -170,4 +167,4 @@ const Renovate: React.FC = () => {
   );
 };
 
-export default Renovate;
+export default SketchToDesign;

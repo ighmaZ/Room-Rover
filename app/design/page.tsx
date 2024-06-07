@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer/Footer";
-import Renovate from "../components/renovate";
+import SketchToDesign from "../components/sketchToDesign";
 
 const page = () => {
   return (
     <>
       <Navbar isLoggedIn={false} />
-      <Renovate />
+      <SketchToDesign />
       <Footer />
     </>
   );

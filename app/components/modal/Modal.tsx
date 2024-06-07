@@ -1,6 +1,5 @@
 "use client";
 
-import { supabaseBrowser } from "@/app/lib/supabase/browser";
 import useModalStore from "@/app/store/useModal";
 import { Button, Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
@@ -9,15 +8,6 @@ import { FcGoogle } from "react-icons/fc";
 const Modal: React.FC = () => {
   const { openModal, closeModal, isOpen } = useModalStore();
 
-  const handleLoginWithOAuth = (provider: "google") => {
-    const supabase = supabaseBrowser();
-    supabase.auth.signInWithOAuth({
-      provider,
-      options: {
-        redirectTo: location.origin + "/auth/callback?next=/design",
-      },
-    });
-  };
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -52,7 +42,7 @@ const Modal: React.FC = () => {
                     <button
                       type="button"
                       className="relative z-10 inline-flex justify-center rounded-md border border-transparent px-8 py-2 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm text-center me-2 mb-2 shadow-xl"
-                      onClick={() => handleLoginWithOAuth("google")}
+                      // onClick={() => handleLoginWithOAuth("google")}
                       // onClick={closeModal}
                     >
                       <FcGoogle className="mt-[0.20rem] mr-1" />
