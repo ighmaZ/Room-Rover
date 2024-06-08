@@ -33,7 +33,7 @@ const Home: NextPage = () => {
           <div className="relative inline-flex group w-full max-w-md">
             <div className="absolute transition-all duration-1000 opacity-40 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-lg blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
             <button className="relative w-full py-4 bg-black rounded-lg transition-all duration-300 shadow-md hover:shadow-2xl text-sm md:text-lg font-bold">
-              Rennovate Your Room Using AI
+              Rennovate Your Interior Using AI
             </button>
           </div>
 
