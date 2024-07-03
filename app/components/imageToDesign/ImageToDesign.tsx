@@ -3,6 +3,7 @@
 import React, { useState, ChangeEvent, DragEvent } from "react";
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
+import DropDown from "../dropdown/Dropdown";
 
 const ImageToDesign: React.FC = () => {
   const [image, setImage] = useState<File | null>(null);
@@ -129,6 +130,7 @@ const ImageToDesign: React.FC = () => {
           </div>
         )}
 
+        <DropDown />
         {/* button */}
         <div className="flex items-center justify-center ">
           <div className="relative inline-flex group mt-7 ">
