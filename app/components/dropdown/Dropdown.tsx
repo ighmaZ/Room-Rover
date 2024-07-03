@@ -2,15 +2,17 @@ import { Room } from "@/utils/types";
 import { useState } from "react";
 import { rooms } from "@/utils/constants";
 import { FaChevronDown } from "react-icons/fa";
+import { useRoom } from "@/app/store/useRoom";
 
 const DropDown: React.FC = () => {
-  const [selectedRoom, setSelectedRoom] = useState<Room>("Bedroom");
+  const selectedRoom = useRoom((state) => state.selectedRoom);
+  const setSelectedRoom = useRoom((state) => state.setSelectedRoom);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedRoom(e.target.value as Room);
   };
   return (
-    <div className="mt-5 relative inline-block w-full max-w-xs sm:max-w-sm">
+    <div className="my-5 relative inline-block w-full max-w-xs sm:max-w-sm">
       <select
         value={selectedRoom}
         onChange={handleChange}

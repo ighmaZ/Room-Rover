@@ -4,6 +4,7 @@ import React, { useState, ChangeEvent, DragEvent } from "react";
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
 import DropDown from "../dropdown/Dropdown";
+import { useRoom } from "@/app/store/useRoom";
 
 const ImageToDesign: React.FC = () => {
   const [image, setImage] = useState<File | null>(null);
@@ -12,8 +13,10 @@ const ImageToDesign: React.FC = () => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const prompt: string =
-    "Renovate the input image room, a modern  bedroom. Please leave the furniture in its current position; only renovate the room without changing the arrangement of the furniture. ";
+  const room = useRoom((state) => state.selectedRoom);
+
+  // const prompt: string = `Renovate the input image room, a modern  ${room}. Please leave the furniture in its current position; only renovate the room without changing the arrangement of the furniture. `;
+  const prompt: string = `Renovate the input image room, a modern  ${room}. please leave the area of the room same as before, and same four corners of the room. `;
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -147,7 +150,7 @@ const ImageToDesign: React.FC = () => {
         </div>
       </div>
 
-      <div className=" w-full lg:w-1/2 mt-3  flex flex-col items-center lg:pr-12 ">
+      <div className=" w-full lg:w-1/2 mt-3  flex flex-col items-center lg:pr-12  ">
         {isLoading && (
           <div className="flex items-center justify-center mt-10">
             <ClipLoader color="#ffffff" />
@@ -156,13 +159,13 @@ const ImageToDesign: React.FC = () => {
         )}
         {editedImage && (
           <div className="mt-6">
-            <h2 className="text-2xl font-semibold mb-4 text-center">
+            <h2 className="text-2xl font-semibold mb-4 text-center gradient-text">
               Renovated Design
             </h2>
             <img
               src={editedImage}
               alt="Edited result"
-              className="max-w-full rounded shadow-lg"
+              className="max-w-full rounded shadow-lg "
             />
           </div>
         )}
