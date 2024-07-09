@@ -10,7 +10,7 @@ interface NavbarProps {
 const Navbar = ({ isLoggedIn }: NavbarProps) => {
   const { openModal } = useModalStore();
   return (
-    <div className="container  w-full bg-transparent mx-auto py-4 px-5 md:px-0 flex justify-between items-center">
+    <div className="container  w-full bg-transparent mx-auto py-4 px-5 md:px-0 flex justify-between items-center z-50">
       <div className="flex ">
         <div className="text-sm sm:text-3xl mt-1 mr-2 text-purple-300">
           <LuSofa />

@@ -18,13 +18,18 @@ const Home: NextPage = () => {
         <meta property="og:image" content="/path/to/image.jpg" />
       </Head>
 
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-15"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
-        }}
-      ></div>
+      <div className="absolute inset-0 overflow-hidden opacity-15 ">
+        <video
+          autoPlay
+          muted
+          loop
+          className="absolute min-w-full min-h-full max-w-none"
+          style={{ objectFit: "cover" }}
+        >
+          <source src="/video1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
       <Navbar isLoggedIn={false} />
 
