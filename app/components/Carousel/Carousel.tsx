@@ -26,7 +26,7 @@ const Carousel: React.FC<PropType> = ({ slides, options }) => {
           {slides.map((index) => (
             <div className="embla__slide" key={index}>
               <Image
-                src={`/images/img-${index}.jpg`}
+                src={`/images/img-${index}.jpeg`}
                 alt="img"
                 width={1000}
                 height={1000}
