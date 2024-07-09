@@ -39,28 +39,22 @@ const Themes: React.FC = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-10/12">
       {selectedTheme && (
-        <div className=" flex justify-center items-center  text-center text-md font-bold m-4">
+        <div className=" flex justify-center items-center  text-center text-md  m-4">
           Selected Theme :{" "}
-          <div className="text-blue-400 ml-2">{selectedTheme}</div>
+          <div className="text-blue-400 ml-2 font-bold">{selectedTheme}</div>
         </div>
       )}
-      <div className="grid grid-cols-2 md:grid-cols-3  gap-4 m-6">
+      <div className="grid grid-cols-2 md:grid-cols-3  gap-3 m-6">
         {themes.map((theme, index) => (
-          <div
-            key={index}
-            // className={`cursor-pointer ${
-            //   selectedTheme === theme.name ? "opacity-50" : ""
-            // }`}
-            onClick={() => handleClick(theme.name)}
-          >
+          <div key={index} onClick={() => handleClick(theme.name)}>
             <Image
               src={theme.src}
               alt={theme.name}
               width={300}
               height={200}
-              className="w-full h-auto rounded"
+              className="w-full h-auto rounded cursor-pointer  hover:opacity-75 hover:border-2 hover:border-blue-400"
             />
             <p
               className={`text-center mt-2 ${
