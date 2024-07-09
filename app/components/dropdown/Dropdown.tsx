@@ -2,11 +2,11 @@ import { Room } from "@/utils/types";
 import { useState } from "react";
 import { rooms } from "@/utils/constants";
 import { FaChevronDown } from "react-icons/fa";
-import { useRoom } from "@/app/store/useRoom";
+import { useRoomStore } from "@/app/store/useRoom";
 
 const DropDown: React.FC = () => {
-  const selectedRoom = useRoom((state) => state.selectedRoom);
-  const setSelectedRoom = useRoom((state) => state.setSelectedRoom);
+  const selectedRoom = useRoomStore((state) => state.selectedRoom);
+  const setSelectedRoom = useRoomStore((state) => state.setSelectedRoom);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedRoom(e.target.value as Room);

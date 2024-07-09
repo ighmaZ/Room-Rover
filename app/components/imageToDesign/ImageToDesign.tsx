@@ -4,7 +4,8 @@ import React, { useState, ChangeEvent, DragEvent } from "react";
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
 import DropDown from "../dropdown/Dropdown";
-import { useRoom } from "@/app/store/useRoom";
+import { useRoomStore } from "@/app/store/useRoom";
+import Themes from "../theme/Themes";
 
 const ImageToDesign: React.FC = () => {
   const [image, setImage] = useState<File | null>(null);
@@ -13,7 +14,7 @@ const ImageToDesign: React.FC = () => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const room = useRoom((state) => state.selectedRoom);
+  const room = useRoomStore((state) => state.selectedRoom);
 
   // const prompt: string = `Renovate the input image room, a modern  ${room}. Please leave the furniture in its current position; only renovate the room without changing the arrangement of the furniture. `;
   const prompt: string = `Renovate the input image room, a modern  ${room}. please leave the area of the room same as before, and same four corners of the room. `;
@@ -134,6 +135,7 @@ const ImageToDesign: React.FC = () => {
         )}
 
         <DropDown />
+        <Themes />
         {/* button */}
         <div className="flex items-center justify-center ">
           <div className="relative inline-flex group mt-7 ">
