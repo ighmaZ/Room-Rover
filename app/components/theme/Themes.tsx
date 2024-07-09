@@ -12,6 +12,7 @@ import img9 from "../../../public/images/img-3.jpg";
 import img10 from "../../../public/images/img-4.jpg";
 import img11 from "../../../public/images/img-5.jpg";
 import img12 from "../../../public/images/img-6.jpg";
+import theme from ".";
 
 const themes = [
   { name: "Modern", src: img1 },
@@ -34,16 +35,17 @@ const Themes: React.FC = () => {
 
   const handleClick = (theme: string) => {
     setSelectedTheme(theme);
+    console.log(theme);
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+    <div className="grid grid-cols-2 md:grid-cols-3  gap-4 m-6">
       {themes.map((theme, index) => (
         <div
           key={index}
-          className={`cursor-pointer ${
-            selectedTheme === theme.name ? "opacity-50" : ""
-          }`}
+          // className={`cursor-pointer ${
+          //   selectedTheme === theme.name ? "opacity-50" : ""
+          // }`}
           onClick={() => handleClick(theme.name)}
         >
           <Image
@@ -55,7 +57,7 @@ const Themes: React.FC = () => {
           />
           <p
             className={`text-center mt-2 ${
-              selectedTheme === theme.name ? "text-blue-500" : "text-gray-700"
+              selectedTheme === theme.name ? "text-blue-400" : "text-gray-200"
             }`}
           >
             {theme.name}
