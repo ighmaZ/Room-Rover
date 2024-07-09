@@ -39,31 +39,39 @@ const Themes: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3  gap-4 m-6">
-      {themes.map((theme, index) => (
-        <div
-          key={index}
-          // className={`cursor-pointer ${
-          //   selectedTheme === theme.name ? "opacity-50" : ""
-          // }`}
-          onClick={() => handleClick(theme.name)}
-        >
-          <Image
-            src={theme.src}
-            alt={theme.name}
-            width={300}
-            height={200}
-            className="w-full h-auto rounded"
-          />
-          <p
-            className={`text-center mt-2 ${
-              selectedTheme === theme.name ? "text-blue-400" : "text-gray-200"
-            }`}
-          >
-            {theme.name}
-          </p>
+    <div className="w-full">
+      {selectedTheme && (
+        <div className=" flex justify-center items-center  text-center text-md font-bold m-4">
+          Selected Theme :{" "}
+          <div className="text-blue-400 ml-2">{selectedTheme}</div>
         </div>
-      ))}
+      )}
+      <div className="grid grid-cols-2 md:grid-cols-3  gap-4 m-6">
+        {themes.map((theme, index) => (
+          <div
+            key={index}
+            // className={`cursor-pointer ${
+            //   selectedTheme === theme.name ? "opacity-50" : ""
+            // }`}
+            onClick={() => handleClick(theme.name)}
+          >
+            <Image
+              src={theme.src}
+              alt={theme.name}
+              width={300}
+              height={200}
+              className="w-full h-auto rounded"
+            />
+            <p
+              className={`text-center mt-2 ${
+                selectedTheme === theme.name ? "text-blue-400" : "text-gray-200"
+              }`}
+            >
+              {theme.name}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
