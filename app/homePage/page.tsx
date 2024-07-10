@@ -31,7 +31,7 @@ const Home: NextPage = () => {
         </video>
       </div>
 
-      <Navbar isLoggedIn={false} />
+      <Navbar isLoggedIn={true} />
 
       <main className="relative z-10 flex flex-col items-center justify-center w-full flex-1 px-20 text-center mb-10">
         <div className="space-y-12">
