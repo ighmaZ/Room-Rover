@@ -1,9 +1,14 @@
+"use client";
+
 import { NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer/Footer";
+import { useRouter } from "next/navigation";
 
 const Home: NextPage = () => {
+  const router = useRouter();
+
   return (
     <div className="relative min-h-screen bg-black flex flex-col items-center justify-center text-white">
       <Head>
@@ -37,14 +42,20 @@ const Home: NextPage = () => {
         <div className="space-y-12">
           <div className="relative inline-flex group w-full max-w-md">
             <div className="absolute transition-all duration-1000 opacity-40 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-lg blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
-            <button className="relative w-full py-4 bg-black rounded-lg transition-all duration-300 shadow-md hover:shadow-2xl text-sm md:text-lg font-bold">
+            <button
+              className="relative w-full py-4 bg-black rounded-lg transition-all duration-300 shadow-md hover:shadow-2xl text-sm md:text-lg font-bold"
+              onClick={() => router.push("/design")}
+            >
               Rennovate Your Interior Using AI
             </button>
           </div>
 
           <div className="relative inline-flex group w-full max-w-md">
             <div className="absolute transition-all duration-1000 opacity-40 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-lg blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
-            <button className="relative w-full py-4 bg-black rounded-lg transition-all duration-300 shadow-md hover:shadow-2xl text-sm md:text-xl font-bold">
+            <button
+              className="relative w-full py-4 bg-black rounded-lg transition-all duration-300 shadow-md hover:shadow-2xl text-sm md:text-xl font-bold"
+              onClick={() => router.push("/sketch")}
+            >
               Sketch To Realistic Interior Design
             </button>
           </div>
