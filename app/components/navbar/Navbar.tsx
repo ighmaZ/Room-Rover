@@ -5,6 +5,7 @@ import { LuSofa } from "react-icons/lu";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Modal from "../modal";
 import useModalStore from "@/app/store/useModal";
+import { useRouter } from "next/navigation";
 
 interface NavbarProps {
   isLoggedIn: boolean;
@@ -18,9 +19,13 @@ const Navbar = ({ isLoggedIn }: NavbarProps) => {
     setMenuOpen(!menuOpen);
   };
 
+  const router = useRouter();
   return (
     <div className="container w-full bg-transparent mx-auto py-4 px-5 md:px-0 flex justify-between items-center z-50">
-      <div className="flex items-center">
+      <div
+        className="flex items-center cursor-pointer"
+        onClick={() => router.push("/#")}
+      >
         <div className="text-lg sm:text-3xl mt-[.1rem] mr-2 sm:mt-1 text-purple-300">
           <LuSofa />
         </div>
