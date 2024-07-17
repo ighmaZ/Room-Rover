@@ -6,18 +6,21 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import Modal from "../modal";
 import useModalStore from "@/app/store/useModal";
 import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/app/store/useAuth";
 
-interface NavbarProps {
-  isLoggedIn: boolean;
-}
-
-const Navbar = ({ isLoggedIn }: NavbarProps) => {
+const Navbar = () => {
+  const { isAuthenticated, user, login, logout } = useAuthStore();
   const { openModal } = useModalStore();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleLogout = () => {
+    logout();
+  };
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  console.log(user?.imageUrl);
 
   const router = useRouter();
   return (
@@ -53,10 +56,20 @@ const Navbar = ({ isLoggedIn }: NavbarProps) => {
         <button className="text-gray-300 text-lg hover:text-gray-500 mb-4 md:mb-0 md:mr-10">
           Pricing
         </button>
-        {isLoggedIn ? (
-          <button className="text-white py-2 px-4 md:ml-10 font-semibold border border-gray-500 hover:bg-gray-700 rounded-xl shadow-2xl shadow-sky-300 mb-4 md:mb-0">
-            Logout
-          </button>
+        {isAuthenticated ? (
+          <div>
+            <img
+              src={user?.imageUrl}
+              alt="Profile"
+              style={{ width: "32px", height: "32px", borderRadius: "50%" }}
+            />
+            <button
+              className="text-white py-2 px-4 md:ml-10 font-semibold border border-gray-500 hover:bg-gray-700 rounded-xl shadow-2xl shadow-sky-300 mb-4 md:mb-0"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </div>
         ) : (
           <button
             type="button"

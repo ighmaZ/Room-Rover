@@ -5,6 +5,7 @@ import Head from "next/head";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer/Footer";
 import { useRouter } from "next/navigation";
+import { withAuth } from "../components/withAuth";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -36,7 +37,7 @@ const Home: NextPage = () => {
         </video>
       </div>
 
-      <Navbar isLoggedIn={true} />
+      <Navbar />
 
       <main className="relative z-10 flex flex-col items-center justify-center w-full flex-1 px-20 text-center mb-10">
         <div className="space-y-12">
@@ -72,4 +73,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default withAuth(Home);
