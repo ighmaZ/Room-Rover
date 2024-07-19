@@ -1,5 +1,6 @@
 "use client";
 
+import useAuth from "@/app/hooks/useAuth";
 import useModalStore from "@/app/store/useModal";
 import { Button, Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
@@ -7,10 +8,8 @@ import { FcGoogle } from "react-icons/fc";
 
 const Modal: React.FC = () => {
   const { openModal, closeModal, isOpen } = useModalStore();
+  const { handleLogin } = useAuth();
 
-  const handleLogin = () => {
-    window.location.href = "http://localhost:3001/api/auth/google/login";
-  };
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>

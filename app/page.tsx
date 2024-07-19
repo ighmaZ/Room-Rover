@@ -16,7 +16,7 @@ const Page = () => {
   return (
     <div className="w-full min-h-screen justify-center ">
       <Modal />
-      <Navbar isLoggedIn={false} />
+      <Navbar />
       <AnimatedText />
       <Carousel slides={SLIDES} options={OPTIONS} />
       <Hero />
