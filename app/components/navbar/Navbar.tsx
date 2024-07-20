@@ -7,13 +7,17 @@ import Modal from "../modal";
 import useModalStore from "@/app/store/useModal";
 import { useRouter } from "next/navigation";
 import useAuth from "@/app/hooks/useAuth";
+import LoadingSpinner from "../loadingSpinner";
 
 const Navbar = () => {
   const { openModal } = useModalStore();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { user, handleLogout } = useAuth();
+  const { user, handleLogout, loading } = useAuth();
   const [tooltipOpen, setTooltipOpen] = useState(false);
 
+  if (loading) {
+    return <LoadingSpinner />;
+  }
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function useAuth() {
   const [user, setUser] = useState<{
@@ -10,36 +10,36 @@ export default function useAuth() {
     photoUrl: string;
     name: string;
   } | null>(null);
-
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
+
   useEffect(() => {
-    const token = new URLSearchParams(window.location.search).get("token");
-    if (token) {
-      localStorage.setItem("token", token);
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      axios
-        .get("/api/profile")
-        .then((response) => {
+    const checkAuth = async () => {
+      try {
+        const token =
+          new URLSearchParams(window.location.search).get("token") ||
+          localStorage.getItem("token");
+
+        if (token) {
+          localStorage.setItem("token", token);
+          axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+          const response = await axios.get("/api/profile");
           setUser(response.data);
-          window.history.replaceState({}, "", "/"); // Clean URL by removing the token
-          router.push("/homePage"); // Redirect to homepage
-        })
-        .catch(() => {
-          // Handle error (optional)
-          window.history.replaceState({}, "", "/"); // Clean URL in case of error
-        });
-    } else {
-      const storedToken = localStorage.getItem("token");
-      if (storedToken) {
-        axios.defaults.headers.common[
-          "Authorization"
-        ] = `Bearer ${storedToken}`;
-        axios.get("/api/profile").then((response) => {
-          setUser(response.data);
-        });
+
+          if (new URLSearchParams(window.location.search).get("token")) {
+            router.replace("/homePage");
+          }
+        }
+      } catch (error) {
+        console.error("Error checking authentication:", error);
+        localStorage.removeItem("token");
+      } finally {
+        setLoading(false);
       }
-    }
-  }, []);
+    };
+
+    checkAuth();
+  }, [router]);
 
   const handleLogin = () => {
     router.push("http://localhost:3001/api/auth/google");
@@ -49,12 +49,13 @@ export default function useAuth() {
     localStorage.removeItem("token");
     setUser(null);
     delete axios.defaults.headers.common["Authorization"];
-    window.location.href = "/";
+    router.push("/");
   };
 
   return {
     user,
     handleLogin,
     handleLogout,
+    loading,
   };
 }
