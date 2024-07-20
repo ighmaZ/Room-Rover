@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { LuSofa } from "react-icons/lu";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaCreditCard, FaSignOutAlt, FaTimes } from "react-icons/fa";
 import Modal from "../modal";
 import useModalStore from "@/app/store/useModal";
 import { useRouter } from "next/navigation";
@@ -12,12 +12,18 @@ const Navbar = () => {
   const { openModal } = useModalStore();
   const [menuOpen, setMenuOpen] = useState(false);
   const { user, handleLogout } = useAuth();
+  const [tooltipOpen, setTooltipOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const toggleTooltip = () => {
+    setTooltipOpen(!tooltipOpen);
+  };
+
   const router = useRouter();
+
   return (
     <div className="container w-full bg-transparent mx-auto py-4 px-5 md:px-0 flex justify-between items-center z-50">
       <div
@@ -52,20 +58,39 @@ const Navbar = () => {
           Pricing
         </button>
         {user ? (
-          <div>
-            <img
-              src={user.photoUrl}
-              alt="Profile"
-              style={{ width: "32px", height: "32px", borderRadius: "50%" }}
-            />
-            <span>{user.email}</span>
-            <span>{user.displayName}</span>
-            <button
-              className="text-white py-2 px-4 md:ml-10 font-semibold border border-gray-500 hover:bg-gray-700 rounded-xl shadow-2xl shadow-sky-300 mb-4 md:mb-0"
-              onClick={handleLogout}
-            >
-              Logout
+          <div className="relative">
+            <button onClick={toggleTooltip} className="focus:outline-none">
+              <img
+                src={user.photoUrl}
+                alt="Profile"
+                className="w-8 h-8 rounded-full"
+              />
             </button>
+            {tooltipOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-gray-700 text-white shadow-lg rounded-lg py-2 z-20">
+                <div className="px-4 py-2">
+                  <span className="block font-semibold ">{user.name}</span>
+                  <span className="block text-sm">{user.email}</span>
+                </div>
+                <hr className="border-gray-200" />
+                <button
+                  onClick={() => {
+                    /* Add your purchase credit functionality here */
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-800 flex items-center transition duration-300 ease-in-out"
+                >
+                  <FaCreditCard className="mr-2 text-blue-700" />
+                  Purchase Credit
+                </button>
+                <button
+                  onClick={handleLogout}
+                  className="w-full text-left px-4 py-2 hover:bg-red-500 flex items-center transition duration-300 ease-in-out"
+                >
+                  <FaSignOutAlt className="mr-2 text-red-600" />
+                  Logout
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <button

@@ -5,7 +5,6 @@ import Head from "next/head";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer/Footer";
 import { useRouter } from "next/navigation";
-import { withAuth } from "../components/withAuth";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -73,4 +72,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default withAuth(Home);
+export default Home;
