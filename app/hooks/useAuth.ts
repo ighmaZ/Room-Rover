@@ -10,6 +10,7 @@ export default function useAuth() {
     photoUrl: string;
     name: string;
   } | null>(null);
+
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
