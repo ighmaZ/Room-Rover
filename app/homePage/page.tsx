@@ -7,6 +7,7 @@ import Footer from "../components/footer/Footer";
 import { useRouter } from "next/navigation";
 import LoadingSpinner from "../components/loadingSpinner";
 import withAuth from "../components/withAuth";
+import AnimatedText from "../components/animatedText";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -39,8 +40,9 @@ const Home: NextPage = () => {
       </div>
 
       <Navbar />
+      {/* <AnimatedText /> */}
 
-      <main className="relative z-10 flex flex-col items-center justify-center w-full flex-1 px-20 text-center mb-10">
+      <main className="relative z-10 flex flex-col items-center justify-center w-full flex-1 px-20 text-center mb-10 ">
         <div className="space-y-12">
           <div className="relative inline-flex group w-full max-w-md">
             <div className="absolute transition-all duration-1000 opacity-40 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-lg blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
