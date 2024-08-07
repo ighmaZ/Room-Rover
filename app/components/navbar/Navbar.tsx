@@ -58,7 +58,10 @@ const Navbar = () => {
           menuOpen ? "flex" : "hidden"
         } flex-col md:flex-row absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent z-10 p-5 md:p-0`}
       >
-        <button className="text-gray-300 text-lg hover:text-gray-500 mb-4 md:mb-0 md:mr-10">
+        <button
+          onClick={() => router.push("/pricing")}
+          className="text-gray-300 text-lg hover:text-gray-500 mb-4 md:mb-0 md:mr-10"
+        >
           Pricing
         </button>
         {user ? (
@@ -79,7 +82,7 @@ const Navbar = () => {
                 <hr className="border-gray-200" />
                 <button
                   onClick={() => {
-                    /* Add your purchase credit functionality here */
+                    router.push("/pricing");
                   }}
                   className="w-full text-left px-4 py-2 hover:bg-gray-800 flex items-center transition duration-300 ease-in-out"
                 >

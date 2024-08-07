@@ -116,3 +116,25 @@ body {
   -webkit-text-fill-color: transparent;
   animation: gradient-text 5s ease infinite;
 }
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake-animation:hover {
+  animation: shake 0.5s ease-in-out;
+}
