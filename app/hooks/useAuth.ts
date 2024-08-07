@@ -16,6 +16,7 @@ export default function useAuth() {
 
   useEffect(() => {
     const checkAuth = async () => {
+      console.log("rendering");
       try {
         const token =
           new URLSearchParams(window.location.search).get("token") ||
@@ -40,7 +41,7 @@ export default function useAuth() {
     };
 
     checkAuth();
-  }, [router]);
+  }, []);
 
   const handleLogin = () => {
     router.push("http://localhost:3001/api/auth/google");
