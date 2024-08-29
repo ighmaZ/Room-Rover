@@ -17,8 +17,7 @@ const ImageToDesign: React.FC = () => {
   const room = useRoomStore((state) => state.selectedRoom);
   const theme = useRoomStore((state) => state.selectedTheme);
 
-  // const prompt: string = `Renovate the input image room, a ${theme} themed ${room}. please leave the area of the room same as before, and same four corners of the room. please try to leave the same furniture at the same position`;
-  const prompt: string = `Renovate the input image room, a rgba lightning room please leave the area of the room same as before, and same four corners of the room. please try to leave the same furniture at the same position`;
+  const prompt: string = `Renovate the input image room, a ${theme} themed ${room}. please leave the area of the room same as before, and same four corners of the room. please try to leave the same furniture at the same position`;
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {

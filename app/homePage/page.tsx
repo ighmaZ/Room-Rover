@@ -26,19 +26,6 @@ const Home: NextPage = () => {
         <meta property="og:image" content="/path/to/image.jpg" />
       </Head>
 
-      <div className="absolute inset-0 overflow-hidden opacity-15 ">
-        <video
-          autoPlay
-          muted
-          loop
-          className="absolute min-w-full min-h-full max-w-none"
-          style={{ objectFit: "cover" }}
-        >
-          <source src="/video1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
       <Navbar />
       {/* <AnimatedText /> */}
 

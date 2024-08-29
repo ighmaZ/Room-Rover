@@ -7,7 +7,6 @@ import Hero from "./components/hero";
 import Faq from "./components/faq";
 import Modal from "./components/modal";
 import Footer from "./components/footer/Footer";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const OPTIONS: EmblaOptionsType = { loop: true };
 const SLIDE_COUNT = 5;
