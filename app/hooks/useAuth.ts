@@ -44,7 +44,7 @@ export default function useAuth() {
   }, []);
 
   const handleLogin = () => {
-    router.push("http://localhost:3001/api/auth/google");
+    router.push("https://interior-ai-backend.vercel.app//api/auth/google");
   };
 
   const handleLogout = () => {
